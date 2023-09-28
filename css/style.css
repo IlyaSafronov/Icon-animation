@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --green-light: hsl(123, 47%, 74%);
+  --green-dark: #2e7f32;
+  --blue-light: hsl(210, 47%, 74%);
+  --blue-dark: #2e577f;
+  --orange-light: hsl(34, 93%, 77%);
+  --orange-dark: #b66a07;
+  --purple-light: hsl(231, 74%, 76%);
+  --purple-dark: #182ca0;
+  --yellow-light: hsl(54, 76%, 79%);
+  --yellow-dark: #afa018;
+  --brown-light: hsl(20, 41%, 69%);
+  --brown-dark: #68402c;
+  --red-light: hsl(0, 59%, 76%);
+  --red-dark: #922626;
+  --pink-light: hsl(295, 42%, 72%);
+  --pink-dark: #6e2f74;
+  --white-light: hsl(0, 0%, 100%);
+  --white-dark: #999999;
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+}
+
+.orbit .center-image {
+  width: 10rem;
+  position: relative;
+}
+.orbit .center-image img {
+  position: absolute;
+  transition: opacity 500ms;
+}
+.orbit .center-image img:not(:first-child):hover {
+  opacity: 0;
+}
