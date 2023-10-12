@@ -1,5 +1,5 @@
-@use 'sass:color';
-@use '../abstracts/' as*;
+@use  "sass:color";
+@use "../abstracts/" as *;
 
 :root {
   @each $name, $value in $colors {
