@@ -86,18 +86,13 @@ body {
 .orbit ul:hover {
   animation-play-state: paused;
 }
-.orbit ul:hover * {
-  animation-play-state: paused;
-}
 .orbit li {
   --icon-bg: pink;
   --text-bg: blue;
-  background: var(--icon-bg);
   position: absolute;
   width: 8rem;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  overflow: hidden;
   font-weight: 500;
   text-align: center;
   color: var(--white-light);
@@ -107,7 +102,15 @@ body {
 }
 .orbit li > * {
   position: absolute;
-  animation: orbit var(--speed) linear reverse infinite;
+  animation: orbit var(--speed) linear reverse infinite, throb 1s ease infinite alternate;
+}
+.orbit li > div {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background-color: var(--icon-bg);
 }
 .orbit li > p {
   background: var(--text-bg);
@@ -170,5 +173,10 @@ body {
 @keyframes hold-position {
   100% {
     rotate: -1turn;
+  }
+}
+@keyframes throb {
+  100% {
+    scale: 1.05;
   }
 }
