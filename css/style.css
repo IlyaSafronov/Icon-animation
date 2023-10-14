@@ -85,6 +85,10 @@ body {
 }
 .orbit ul:hover {
   animation-play-state: paused;
+  --orbit-play-state: paused;
+}
+.orbit ul:hover {
+  animation-play-state: paused;
 }
 .orbit li {
   --icon-bg: pink;
@@ -100,24 +104,48 @@ body {
   display: grid;
   place-items: center;
 }
-.orbit li > * {
-  position: absolute;
-  animation: orbit var(--speed) linear reverse infinite, throb 1s ease infinite alternate;
+.orbit li:hover {
+  --throb-play-state: paused;
 }
-.orbit li > div {
-  border-radius: inherit;
+.orbit li:nth-child(1) {
+  --throb-delay: 0ms;
+}
+.orbit li:nth-child(2) {
+  --throb-delay: 500ms;
+}
+.orbit li:nth-child(3) {
+  --throb-delay: 1000ms;
+}
+.orbit li:nth-child(4) {
+  --throb-delay: 1500ms;
+}
+.orbit li:nth-child(5) {
+  --throb-delay: 2000ms;
+}
+.orbit li:nth-child(6) {
+  --throb-delay: 2500ms;
+}
+.orbit li:nth-child(7) {
+  --throb-delay: 3000ms;
+}
+.orbit li:nth-child(8) {
+  --throb-delay: 3500ms;
+}
+.orbit li > * {
   width: 100%;
   height: 100%;
   display: grid;
   place-items: center;
+  border-radius: inherit;
+  position: absolute;
+  animation: orbit var(--speed) linear reverse infinite, throb 1s var(--throb-delay) ease-in-out infinite alternate;
+  animation-play-state: var(--orbit-play-state, running), var(--throb-play-state, running);
+}
+.orbit li > div {
   background-color: var(--icon-bg);
 }
 .orbit li > p {
   background: var(--text-bg);
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
   transition: opacity 500ms;
   opacity: 0;
 }
